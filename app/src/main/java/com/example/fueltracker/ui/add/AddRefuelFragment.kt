@@ -156,7 +156,7 @@ class AddRefuelFragment : Fragment() {
         }
 
         val record = RefuelEntity(
-            id = args.recordId,
+           id = if (args.recordId > 0) args.recordId else 0,
             date = selectedDate.timeInMillis,
             fuelType = fuelType,
             odometer = odometer,
