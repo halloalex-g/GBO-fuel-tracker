@@ -30,6 +30,13 @@ jobs:
       - name: Decode keystore
         run: echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > app/keystore.jks
 
+      - name: Extract version from build.gradle
+        id: version
+        run: |
+          VERSION=$(grep -oP 'versionName "\K[^"]+' app/build.gradle)
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
       - name: Build Debug APK
         run: gradle assembleDebug --no-daemon
         env:
@@ -40,9 +47,9 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: app/build/outputs/apk/debug/app-debug.apk
-          tag_name: v1.1
-          name: Fuel Tracker v1.1
-          body: Обновление с постоянной подписью для Obtainium
+          tag_name: v${{ env.VERSION }}
+          name: Fuel Tracker v${{ env.VERSION }}
+          body: Автоматическая сборка Fuel Tracker v${{ env.VERSION }}
           draft: false
           prerelease: false
         env:
