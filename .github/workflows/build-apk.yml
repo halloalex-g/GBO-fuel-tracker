@@ -1,4 +1,4 @@
-name: Build APK
+name: Build and Release APK
 
 on:
   push:
@@ -27,9 +27,14 @@ jobs:
       - name: Build Debug APK
         run: gradle assembleDebug --no-daemon
 
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
+      - name: Upload to Release
+        uses: softprops/action-gh-release@v2
         with:
-          name: fuel-tracker-debug
-          path: app/build/outputs/apk/debug/*.apk
-          retention-days: 30
+          files: app/build/outputs/apk/debug/app-debug.apk
+          tag_name: v1.0
+          name: Fuel Tracker v1.0
+          body: Автоматическая сборка Fuel Tracker
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
