@@ -23,7 +23,7 @@ object CsvExporter {
         records.sortedBy { it.date }.forEach { r ->
             val dateStr = dateFormat.format(Date(r.date))
             val price = String.format(Locale.US, "%.2f", r.pricePerLiter())
-            csv.appendLine(""${'"'}"${'"'}"$dateStr"${'"'}"${'"'},"${'"'}"${r.fuelType}"${'"'}"${'"'},${r.odometer},${r.liters},${r.totalCost},$price,${r.isFullTank},"${r.note ?: ""}")
+            csv.appendLine("$dateStr,${r.fuelType},${r.odometer},${r.liters},${r.totalCost},$price,${r.isFullTank},${r.note ?: ""}")
         }
 
         val fileName = "fuel_tracker_export_${System.currentTimeMillis()}.csv"
