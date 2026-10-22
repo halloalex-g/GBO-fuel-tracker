@@ -13,13 +13,26 @@ android {
         applicationId "com.example.fueltracker"
         minSdk 24
         targetSdk 34
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "1.2"
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("keystore.jks")
+            storePassword System.getenv("KEYSTORE_PASSWORD") ?: "fueltracker"
+            keyAlias "fueltracker"
+            keyPassword System.getenv("KEY_PASSWORD") ?: "fueltracker"
+        }
     }
 
     buildTypes {
+        debug {
+            signingConfig signingConfigs.release
+        }
         release {
             minifyEnabled false
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
