@@ -27,16 +27,22 @@ jobs:
       - name: Accept Android licenses
         run: yes | sdkmanager --licenses || true
 
+      - name: Decode keystore
+        run: echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > app/keystore.jks
+
       - name: Build Debug APK
         run: gradle assembleDebug --no-daemon
+        env:
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
 
       - name: Upload to Release
         uses: softprops/action-gh-release@v2
         with:
           files: app/build/outputs/apk/debug/app-debug.apk
-          tag_name: v1.0
-          name: Fuel Tracker v1.0
-          body: Автоматическая сборка Fuel Tracker
+          tag_name: v1.1
+          name: Fuel Tracker v1.1
+          body: Обновление с постоянной подписью для Obtainium
           draft: false
           prerelease: false
         env:
