@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_theme_background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Данные автомобиля"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/md_theme_onSurface"
+            android:layout_marginBottom="16dp" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/surface_card"
+            app:cardCornerRadius="16dp"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Модель"
+                    app:boxBackgroundColor="@color/surface_elevated"
+                    style="@style/Widget.Material3.TextInputLayout.FilledBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_car_model"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:text="Renault Kaptur"
+                        android:textColor="@color/md_theme_onSurface" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:hint="Двигатель"
+                    app:boxBackgroundColor="@color/surface_elevated"
+                    style="@style/Widget.Material3.TextInputLayout.FilledBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_engine"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:text="HR16DE"
+                        android:textColor="@color/md_theme_onSurface" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:hint="Тип ГБО"
+                    app:boxBackgroundColor="@color/surface_elevated"
+                    style="@style/Widget.Material3.TextInputLayout.FilledBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_gbo_type"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:text="Пропан (4-е поколение)"
+                        android:textColor="@color/md_theme_onSurface" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Экспорт и импорт"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/md_theme_onSurface"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="16dp" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/surface_card"
+            app:cardCornerRadius="16dp"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_export_csv"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/export_csv"
+                    android:gravity="start|center_vertical"
+                    android:paddingHorizontal="16dp"
+                    android:textColor="@color/md_theme_onSurface" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/md_theme_surfaceVariant"
+                    android:layout_marginHorizontal="16dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_export_json"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/export_json"
+                    android:gravity="start|center_vertical"
+                    android:paddingHorizontal="16dp"
+                    android:textColor="@color/md_theme_onSurface" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/md_theme_surfaceVariant"
+                    android:layout_marginHorizontal="16dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_import_json"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/import_json"
+                    android:gravity="start|center_vertical"
+                    android:paddingHorizontal="16dp"
+                    android:textColor="@color/md_theme_onSurface" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:textColor="@color/md_theme_onSurfaceVariant"
+            android:textSize="14sp"
+            android:visibility="gone" />
+    </LinearLayout>
+</ScrollView>

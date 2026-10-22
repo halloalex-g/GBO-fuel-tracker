@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Fuel Tracker</string>
+    <string name="title_main">Заправки</string>
+    <string name="title_add">Новая заправка</string>
+    <string name="title_detail">Детали записи</string>
+    <string name="title_settings">Настройки</string>
+
+    <string name="hint_odometer">Пробег, км</string>
+    <string name="hint_liters">Литры</string>
+    <string name="hint_cost">Сумма, ₽</string>
+    <string name="hint_note">Примечание</string>
+
+    <string name="label_fuel_type">Тип топлива</string>
+    <string name="label_gas">Газ (пропан)</string>
+    <string name="label_petrol_92">Бензин 92</string>
+    <string name="label_petrol_95">Бензин 95</string>
+    <string name="label_petrol_98">Бензин 98</string>
+    <string name="label_full_tank">Полный бак</string>
+    <string name="label_save">Сохранить</string>
+    <string name="label_delete">Удалить</string>
+    <string name="label_edit">Редактировать</string>
+    <string name="label_cancel">Отмена</string>
+
+    <string name="stat_mileage">Пробег</string>
+    <string name="stat_gas_consumption">Расход газа</string>
+    <string name="stat_petrol_consumption">Расход бензина</string>
+    <string name="stat_total_spent">Всего потрачено</string>
+    <string name="stat_cost_per_km">Стоимость км</string>
+
+    <string name="export_csv">Экспорт CSV</string>
+    <string name="export_json">Экспорт JSON</string>
+    <string name="import_json">Импорт JSON</string>
+    <string name="export_success">Файл сохранён: %s</string>
+    <string name="export_error">Ошибка экспорта</string>
+    <string name="import_success">Импортировано записей: %d</string>
+    <string name="import_error">Ошибка импорта</string>
+
+    <string name="empty_list">Нет записей. Нажмите + чтобы добавить.</string>
+    <string name="confirm_delete">Удалить запись?</string>
+    <string name="delete_success">Запись удалена</string>
+    <string name="save_success">Сохранено</string>
+    <string name="fill_all_fields">Заполните все обязательные поля</string>
+</resources>

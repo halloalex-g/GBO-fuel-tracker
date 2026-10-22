@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.fueltracker.ui.main.MainFragment"
+        android:label="@string/title_main"
+        tools:layout="@layout/fragment_main">
+
+        <action
+            android:id="@+id/action_main_to_add"
+            app:destination="@id/addRefuelFragment" />
+
+        <action
+            android:id="@+id/action_main_to_detail"
+            app:destination="@id/detailFragment" />
+
+        <action
+            android:id="@+id/action_main_to_settings"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addRefuelFragment"
+        android:name="com.example.fueltracker.ui.add.AddRefuelFragment"
+        android:label="@string/title_add"
+        tools:layout="@layout/fragment_add_refuel">
+
+        <argument
+            android:name="recordId"
+            app:argType="long"
+            android:defaultValue="-1L" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.fueltracker.ui.detail.DetailFragment"
+        android:label="@string/title_detail"
+        tools:layout="@layout/fragment_detail">
+
+        <argument
+            android:name="recordId"
+            app:argType="long" />
+
+        <action
+            android:id="@+id/action_detail_to_add"
+            app:destination="@id/addRefuelFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.fueltracker.ui.settings.SettingsFragment"
+        android:label="@string/title_settings"
+        tools:layout="@layout/fragment_settings" />
+</navigation>

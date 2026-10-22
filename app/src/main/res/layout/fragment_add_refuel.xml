@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_theme_background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_fuel_type"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/md_theme_onSurface"
+            android:layout_marginBottom="12dp" />
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/toggle_fuel_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:singleSelection="true"
+            app:checkedButton="@id/btn_gas"
+            app:selectionRequired="true">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_gas"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/label_gas"
+                android:textSize="12sp"
+                app:strokeColor="@color/gas_green"
+                android:textColor="@color/gas_green" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_petrol"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Бензин"
+                android:textSize="12sp"
+                app:strokeColor="@color/petrol_orange"
+                android:textColor="@color/petrol_orange" />
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/toggle_petrol_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:singleSelection="true"
+            app:checkedButton="@id/btn_petrol_92"
+            app:selectionRequired="true"
+            android:visibility="gone">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_petrol_92"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/label_petrol_92"
+                android:textSize="12sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_petrol_95"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/label_petrol_95"
+                android:textSize="12sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_petrol_98"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/label_petrol_98"
+                android:textSize="12sp" />
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="@string/hint_odometer"
+            app:boxBackgroundColor="@color/surface_card"
+            style="@style/Widget.Material3.TextInputLayout.FilledBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_odometer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:textColor="@color/md_theme_onSurface" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:hint="@string/hint_liters"
+                app:boxBackgroundColor="@color/surface_card"
+                style="@style/Widget.Material3.TextInputLayout.FilledBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_liters"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/md_theme_onSurface" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/hint_cost"
+                app:boxBackgroundColor="@color/surface_card"
+                style="@style/Widget.Material3.TextInputLayout.FilledBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_cost"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/md_theme_onSurface" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="Дата и время"
+            app:boxBackgroundColor="@color/surface_card"
+            style="@style/Widget.Material3.TextInputLayout.FilledBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:focusable="false"
+                android:clickable="true"
+                android:textColor="@color/md_theme_onSurface" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/switch_full_tank"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/label_full_tank"
+            android:textColor="@color/md_theme_onSurface"
+            android:checked="true" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="@string/hint_note"
+            app:boxBackgroundColor="@color/surface_card"
+            style="@style/Widget.Material3.TextInputLayout.FilledBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textColor="@color/md_theme_onSurface" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/label_save"
+            android:textSize="16sp"
+            app:cornerRadius="12dp" />
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    app:cardBackgroundColor="@color/surface_card"
+    app:cardCornerRadius="16dp"
+    app:strokeWidth="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <View
+            android:id="@+id/color_indicator"
+            android:layout_width="4dp"
+            android:layout_height="40dp"
+            android:background="@color/gas_green"
+            android:layout_marginEnd="12dp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_fuel_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Газ (пропан)"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/md_theme_onSurface" />
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="01.01.2024"
+                android:textSize="12sp"
+                android:textColor="@color/md_theme_onSurfaceVariant"
+                android:layout_marginTop="2dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="end"
+            android:layout_marginEnd="12dp">
+
+            <TextView
+                android:id="@+id/tv_odometer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="102 450 км"
+                android:textSize="13sp"
+                android:textColor="@color/md_theme_onSurfaceVariant" />
+
+            <TextView
+                android:id="@+id/tv_volume_cost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="25.0 л · 1 250 ₽"
+                android:textSize="13sp"
+                android:textColor="@color/md_theme_onSurfaceVariant"
+                android:layout_marginTop="2dp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_full_tank"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@android:drawable/ic_lock_idle_lock"
+            android:visibility="gone"
+            app:tint="@color/md_theme_primary" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
