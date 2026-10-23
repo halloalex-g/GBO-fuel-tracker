@@ -9,22 +9,29 @@ object ConsumptionCalculator {
         val totalMileage: Int,
         val avgGasConsumption: Double,
         val avgPetrolConsumption: Double,
-        val totalSpent: Double,
+        val totalGasSpent: Double,
+        val totalPetrolSpent: Double,
         val costPerKm: Double,
         val gasRecordsCount: Int,
         val petrolRecordsCount: Int
     )
 
     fun calculate(records: List<RefuelEntity>): Statistics {
+        val gasRecords = records.filter { it.getFuelTypeEnum() == FuelType.GAS }
+        val petrolRecords = records.filter { it.getFuelTypeEnum() != FuelType.GAS }
+        val totalGasSpent = gasRecords.sumOf { it.totalCost }
+        val totalPetrolSpent = petrolRecords.sumOf { it.totalCost }
+
         if (records.size < 2) {
             return Statistics(
                 totalMileage = 0,
                 avgGasConsumption = 0.0,
                 avgPetrolConsumption = 0.0,
-                totalSpent = records.sumOf { it.totalCost },
+                totalGasSpent = totalGasSpent,
+                totalPetrolSpent = totalPetrolSpent,
                 costPerKm = 0.0,
-                gasRecordsCount = records.count { it.getFuelTypeEnum() == FuelType.GAS },
-                petrolRecordsCount = records.count { it.getFuelTypeEnum() != FuelType.GAS }
+                gasRecordsCount = gasRecords.size,
+                petrolRecordsCount = petrolRecords.size
             )
         }
 
@@ -32,7 +39,7 @@ object ConsumptionCalculator {
         val minOdo = sorted.first().odometer
         val maxOdo = sorted.last().odometer
         val totalMileage = maxOdo - minOdo
-        val totalSpent = records.sumOf { it.totalCost }
+        val totalSpent = totalGasSpent + totalPetrolSpent
         val costPerKm = if (totalMileage > 0) totalSpent / totalMileage else 0.0
 
         val gasConsumption = calculateForFuelType(sorted, FuelType.GAS)
@@ -42,10 +49,11 @@ object ConsumptionCalculator {
             totalMileage = totalMileage,
             avgGasConsumption = gasConsumption,
             avgPetrolConsumption = petrolConsumption,
-            totalSpent = totalSpent,
+            totalGasSpent = totalGasSpent,
+            totalPetrolSpent = totalPetrolSpent,
             costPerKm = costPerKm,
-            gasRecordsCount = records.count { it.getFuelTypeEnum() == FuelType.GAS },
-            petrolRecordsCount = records.count { it.getFuelTypeEnum() != FuelType.GAS }
+            gasRecordsCount = gasRecords.size,
+            petrolRecordsCount = petrolRecords.size
         )
     }
 
