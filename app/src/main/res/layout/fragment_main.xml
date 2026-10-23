@@ -128,18 +128,42 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/stat_total_spent"
+                        android:text="На газ"
                         android:textSize="12sp"
                         android:textColor="@color/md_theme_onSurfaceVariant" />
 
                     <TextView
-                        android:id="@+id/tv_stat_spent"
+                        android:id="@+id/tv_stat_gas_spent"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0 ₽"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        android:textColor="@color/md_theme_onSurface"
+                        android:textColor="@color/gas_green"
+                        android:layout_marginTop="2dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="На бензин"
+                        android:textSize="12sp"
+                        android:textColor="@color/md_theme_onSurfaceVariant" />
+
+                    <TextView
+                        android:id="@+id/tv_stat_petrol_spent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 ₽"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/petrol_orange"
                         android:layout_marginTop="2dp" />
                 </LinearLayout>
 
