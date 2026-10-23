@@ -45,7 +45,7 @@ class MainFragment : Fragment() {
             } else {
                 binding.tvEmpty.visibility = View.GONE
                 binding.recyclerView.visibility = View.VISIBLE
-                adapter.submitList(records)
+                adapter.submitList(records.sortedByDescending { it.date })
             }
         }
 
@@ -58,7 +58,8 @@ class MainFragment : Fragment() {
         binding.tvStatMileage.text = "${stats.totalMileage} км"
         binding.tvStatGas.text = ConsumptionCalculator.formatConsumption(stats.avgGasConsumption)
         binding.tvStatPetrol.text = ConsumptionCalculator.formatConsumption(stats.avgPetrolConsumption)
-        binding.tvStatSpent.text = ConsumptionCalculator.formatCurrency(stats.totalSpent)
+        binding.tvStatGasSpent.text = ConsumptionCalculator.formatCurrency(stats.totalGasSpent)
+        binding.tvStatPetrolSpent.text = ConsumptionCalculator.formatCurrency(stats.totalPetrolSpent)
         binding.tvStatCostKm.text = ConsumptionCalculator.formatCostPerKm(stats.costPerKm)
     }
 
